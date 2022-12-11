@@ -1,0 +1,44 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<a th:href="@{/addinstructor}">Create</a>
+		<table id="dataTable" class="text-center">
+			<thead class="bg-light text-capitalize">
+				<tr>
+					<th th:text="name"></th>
+					<th th:text="about"></th>
+					<th th:text="phone"></th>
+					<th th:text="dateOfBirth"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item:${instructors}">
+				<td th:text="${item.name}"></td>
+					<td th:text="${item.about}"></td>
+					<td th:text="${item.phone}"></td>
+					<td th:text="${item.dateOfBirth}"></td>
+<td>
+												
+												<a type="button" 
+													class="btn btn-flat btn-warning btn-xs mb-3"
+													th:href="@{/editinstructor/{id}(id=${item.id}) }"> 
+													<i class="fa fa-edit" aria-hidden="true"></i>d
+												</a>
+												<a type="button" 
+													onclick="return confirm('Are you sure?') ? true : false;"
+													class="btn btn-flat btn-danger btn-xs mb-3"
+													th:href="@{/deleteinstructor/{id}(id=${item.id}) }"> 
+													<i class="fa fa-trash" aria-hidden="true"></i>d
+												</a></td>
+				</tr>
+
+			</tbody>
+
+		</table>
+
+	</tbody>
+</table>

@@ -1,0 +1,215 @@
+
+<form th:action="@{/updatecourse/{id}(id=${course.id})}"
+	th:object="${course}" method="post">
+
+	<div class="form-group">
+		<label for="exampleInputEmail1">Topic Title</label> <input
+			th:value="${course.topicTitle}" name="topicTitle" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">Description</label> <input
+			th:value="${course.courseRequirements}" name="courseRequirements" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">Description</label> <input
+			th:value="${course.courseDescription}" name="courseDescription" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">Description</label> <input
+			th:value="${course.courseDescription}" name="courseDescription" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+	
+		<div class="form-group">
+		<label for="exampleInputEmail1">Description</label> <input
+			th:value="${course.category}" name="category" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+	
+		<div class="form-group">
+		<label for="exampleInputEmail1">Description</label> <input
+			th:value="${course.courseDescription}" name="courseDescription" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+	
+		<div class="form-group">
+		<label for="exampleInputEmail1">Description</label> <input
+			th:value="${course.level}" name="level" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+	
+		<div class="form-group">
+		<label for="exampleInputEmail1">Description</label> <input
+			th:value="${course.language}" name="language" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+	
+		<div class="form-group">
+		<label for="exampleInputEmail1">duration</label> <input
+			th:value="${course.duration}" name="duration" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+	
+		<div class="form-group">
+		<label for="exampleInputEmail1">thumbnail</label> <input
+			th:value="${course.thumbnail}" name="thumbnail" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+	
+		<div class="form-group">
+		<label for="exampleInputEmail1">isfree</label> <input
+			th:value="${course.isfree}" name="isfree" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+	
+		<div class="form-group">
+		<label for="exampleInputEmail1">price</label> <input
+			th:value="${course.price}" name="price" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+	
+	
+		<div class="form-group">
+		<label for="exampleInputEmail1">discount</label> <input
+			th:value="${course.discount}" name="discount" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+	
+	
+		<div class="form-group">
+		<label for="exampleInputEmail1">isfree</label> <input
+			th:value="${course.isfree}" name="isfree" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+		<div class="form-group">
+		<label for="exampleInputEmail1">previewVideo</label> <input
+			th:value="${course.previewVideo}" name="previewVideo" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+	
+		<div class="form-group">
+		<label for="exampleInputEmail1">featuredCourse</label> <input
+			th:value="${course.featuredCourse}" name="featuredCourse" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+	
+		<div class="form-group">
+		<label for="exampleInputEmail1">downloadable</label> <input
+			th:value="${course.downloadable}" name="downloadable" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+	
+		<div class="form-group">
+		<label for="exampleInputEmail1">startDate</label> <input
+			th:value="${course.startDate}" name="startDate" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+	
+	
+		<div class="form-group">
+		<label for="exampleInputEmail1">capacity</label> <input
+			th:value="${course.capacity}" name="capacity" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+		<div class="form-group">
+		<label for="exampleInputEmail1">coverImage</label> <input
+			th:value="${course.coverImage}" name="coverImage" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">partnerInstructor</label> <input
+			th:value="${course.partnerInstructor}" name="description" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+	
+	
+	
+	
+
+	<button type="submit" class="btn btn-primary">Edit</button>
+
+
+</form>

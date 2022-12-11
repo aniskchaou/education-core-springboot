@@ -1,0 +1,15 @@
+<form th:action="@{/updatecourselevel/{id}(id=${courseLevel.id})}"
+	th:object="${courseLevel}" method="post">
+
+	<div class="form-group">
+		<label for="exampleInputEmail1">level</label> <input
+			th:value="${courseLevel.level}" name="level" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+
+	<button type="submit" class="btn btn-primary">Edit</button>
+
+
+</form>

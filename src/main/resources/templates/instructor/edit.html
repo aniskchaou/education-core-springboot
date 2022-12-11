@@ -1,0 +1,98 @@
+
+
+<form th:action="@{/updateinstructor/{id}(id=${instructor.id})}"
+	th:object="${instructor}" method="post">
+
+	<div class="form-group">
+		<label for="exampleInputEmail1">name</label> <input
+			th:value="${instructor.name}" name="description" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+	</div>
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">about</label> <input
+			th:value="${instructor.about}" name="description" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+	</div>
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">dateOfBirth</label> <input
+			th:value="${instructor.dateOfBirth}" name="description" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+	</div>
+	
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">phone</label> <input
+			th:value="${instructor.phone}" name="description" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+	</div>
+	
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">email</label> <input
+			th:value="${instructor.email}" name="description" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+	</div>
+	
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">image</label> <input
+			th:value="${instructor.image}" name="description" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+	</div>
+	
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">password</label> <input
+			th:value="${instructor.password}" name="description" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+	</div>
+	
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">facebook</label> <input
+			th:value="${instructor.facebook}" name="description" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+	</div>
+	
+	
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">twitter</label> <input
+			th:value="${instructor.twitter}" name="description" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+	</div>
+	
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">linkedin</label> <input
+			th:value="${instructor.linkedin}" name="description" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+	</div>
+	
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">instagram</label> <input
+			th:value="${instructor.instagram}" name="description" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+	</div>
+	
+	
+	
+
+	<button type="submit" class="btn btn-primary">Edit</button>
+
+
+</form>

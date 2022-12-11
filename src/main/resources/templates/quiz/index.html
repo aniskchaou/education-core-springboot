@@ -1,0 +1,45 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<a th:href="@{/addquiz}">Create</a>
+		<table id="dataTable" class="text-center">
+			<thead class="bg-light text-capitalize">
+				<tr>
+					<th th:text="quizTitle"></th>
+					<th th:text="category"></th>
+					<th th:text="minimumPercentage"></th>
+					<th th:text="instruction"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item:${quizes}">
+					<td th:text="${item.quizTitle}"></td>
+					<td th:text="${item.category}"></td>
+					<td th:text="${item.minimumPercentage}"></td>
+					<td th:text="${item.instruction}"></td>
+<td>
+												
+												<a type="button" 
+													class="btn btn-flat btn-warning btn-xs mb-3"
+													th:href="@{/editquiz/{id}(id=${item.id}) }"> 
+													<i class="fa fa-edit" aria-hidden="true"></i>d
+												</a>
+												<a type="button" 
+													onclick="return confirm('Are you sure?') ? true : false;"
+													class="btn btn-flat btn-danger btn-xs mb-3"
+													th:href="@{/deletequiz/{id}(id=${item.id}) }"> 
+													<i class="fa fa-trash" aria-hidden="true"></i>d
+												</a></td>
+				</tr>
+
+			</tbody>
+
+		</table>
+
+	</tbody>
+</table>
+

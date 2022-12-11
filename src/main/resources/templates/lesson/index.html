@@ -1,0 +1,31 @@
+
+		<a th:href="@{/addlesson}">Create</a>
+		<table id="dataTable" class="text-center">
+			<thead class="bg-light text-capitalize">
+				<tr>
+					<th th:text="title"></th>
+					<th></th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item:${lessons}">
+					<td th:text="${item.title}"></td>
+					<td>
+												
+												<a type="button" 
+													class="btn btn-flat btn-warning btn-xs mb-3"
+													th:href="@{/editlesson/{id}(id=${item.id}) }">
+													<i class="fa fa-edit" aria-hidden="true"></i>a
+												</a>
+												<a type="button" 
+													onclick="return confirm('Are you sure?') ? true : false;"
+													class="btn btn-flat btn-danger btn-xs mb-3"
+													th:href="@{/deletelesson/{id}(id=${item.id}) }">
+													<i class="fa fa-trash" aria-hidden="true"></i>a
+												</a></td>
+				</tr>
+
+			</tbody>
+
+		</table>

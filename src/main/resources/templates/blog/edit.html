@@ -1,0 +1,29 @@
+<form th:action="@{/updateblog/{id}(id=${blog.id})}"
+	th:object="${blog}" method="post">
+
+	<div class="form-group">
+		<label for="exampleInputEmail1">Description</label> <input
+			th:value="${blog.title}" name="title" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+	</div>
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">Detail</label> <input
+			th:value="${blog.detail}" name="detail" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+	</div>
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">Image</label> <input
+			th:value="${blog.image}" name="image" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+	</div>
+
+
+	<button type="submit" class="btn btn-primary">Edit</button>
+
+
+</form>

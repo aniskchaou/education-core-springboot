@@ -1,0 +1,44 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<a th:href="@{/addquestion}">Create</a>
+		<table id="dataTable" class="text-center">
+			<thead class="bg-light text-capitalize">
+				<tr>
+					<th th:text="questionType"></th>
+					<th th:text="question"></th>
+					<th th:text="marks"></th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item:${questions}">
+					<td th:text="${item.questionType}"></td>
+					<td th:text="${item.question}"></td>
+					<td th:text="${item.marks}"></td>
+	<td>
+												
+												<a type="button" 
+													class="btn btn-flat btn-warning btn-xs mb-3"
+													th:href="@{/editquestion/{id}(id=${item.id}) }"> 
+													<i class="fa fa-edit" aria-hidden="true"></i>d
+												</a>
+												<a type="button" 
+													onclick="return confirm('Are you sure?') ? true : false;"
+													class="btn btn-flat btn-danger btn-xs mb-3"
+													th:href="@{/deletequestion/{id}(id=${item.id}) }"> 
+													<i class="fa fa-trash" aria-hidden="true"></i>d
+												</a></td>				
+
+				</tr>
+
+			</tbody>
+
+		</table>
+
+	</tbody>
+</table>

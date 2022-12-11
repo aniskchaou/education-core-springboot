@@ -1,0 +1,15 @@
+<form th:action="@{/updatesubscription/{id}(id=${subscription.id})}"
+	th:object="${subscription}" method="post">
+
+	<div class="form-group">
+		<label for="exampleInputEmail1">title</label> <input
+			th:value="${subscription.title}" name="title" type="text"
+			class="form-control" id="exampleInputEmail1"
+			aria-describedby="emailHelp" placeholder="Enter email">
+
+	</div>
+
+	<button type="submit" class="btn btn-primary">Edit</button>
+
+
+</form>

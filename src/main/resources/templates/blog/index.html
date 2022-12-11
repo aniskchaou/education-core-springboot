@@ -1,0 +1,37 @@
+
+	
+		<a th:href="@{/addblog}">Create</a>
+		<table id="dataTable" class="text-center">
+			<thead class="bg-light text-capitalize">
+				<tr>
+					<th th:text="title"></th>
+					<th th:text="image"></th>
+					<th th:text="detail"></th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item:${blogs}">
+					<td th:text="${item.title}"></td>
+					<td th:text="${item.image}"></td>
+					<td th:text="${item.detail}"></td>
+					<td>
+												
+												<a type="button" 
+													class="btn btn-flat btn-warning btn-xs mb-3"
+													th:href="@{/editblog/{id}(id=${item.id}) }"> 
+													<i class="fa fa-edit" aria-hidden="true"></i>d
+												</a>
+												<a type="button" 
+													onclick="return confirm('Are you sure?') ? true : false;"
+													class="btn btn-flat btn-danger btn-xs mb-3"
+													th:href="@{/deleteblog/{id}(id=${item.id}) }"> 
+													<i class="fa fa-trash" aria-hidden="true"></i>d
+												</a></td>
+
+				</tr>
+
+			</tbody>
+
+		</table>
+

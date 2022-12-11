@@ -1,0 +1,35 @@
+
+		<a th:href="@{/addpayment}">Create</a>
+		<table id="dataTable" class="text-center">
+			<thead class="bg-light text-capitalize">
+				<tr>
+					<th th:text="order"></th>
+					<th th:text="date"></th>
+					<th th:text="name"></th>
+					<th th:text="paymentType"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item:${payments}">
+					<td th:text="${item.order}"></td>
+					<td th:text="${item.date}"></td>
+					<td th:text="${item.name}"></td>
+					<td th:text="${item.paymentType}"></td>
+<td>
+												
+												<a type="button" 
+													class="btn btn-flat btn-warning btn-xs mb-3"
+													th:href="@{/editpayment/{id}(id=${item.id}) }"> 
+													<i class="fa fa-edit" aria-hidden="true"></i>d
+												</a>
+												<a type="button" 
+													onclick="return confirm('Are you sure?') ? true : false;"
+													class="btn btn-flat btn-danger btn-xs mb-3"
+													th:href="@{/deletepayment/{id}(id=${item.id}) }"> 
+													<i class="fa fa-trash" aria-hidden="true"></i>d
+												</a></td>
+				</tr>
+
+			</tbody>
+
+		</table>
