@@ -1,10 +1,6 @@
 package com.dev.delta.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Coupon {
@@ -17,6 +13,26 @@ public class Coupon {
 	String discount;
 	String limitdate;
 	String code;
+
+	@ManyToOne
+	Course course;
+
+	public String getLimitdate() {
+		return limitdate;
+	}
+
+	public void setLimitdate(String limitdate) {
+		this.limitdate = limitdate;
+	}
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
 	public Coupon() {
 		// TODO Auto-generated constructor stub
 	}

@@ -17,27 +17,11 @@ public class Quiz {
 	String category;
 	String minimumPercentage ;
 	String instruction ;
-	@ManyToOne
-	Question question;
+
 	
 	public Quiz() {
 		// TODO Auto-generated constructor stub
 	}
-
-	
-	
-	
-	public Question getQuestion() {
-		return question;
-	}
-
-
-
-
-	public void setQuestion(Question question) {
-		this.question = question;
-	}
-
 
 
 

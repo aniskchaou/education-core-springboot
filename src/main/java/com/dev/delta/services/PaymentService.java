@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dev.delta.entities.Payment;
+import com.dev.delta.entities.Paymentt;
 import com.dev.delta.repositories.PaymentRepository;
 @Service
 public class PaymentService {
@@ -20,7 +20,7 @@ public class PaymentService {
 	 * getPayments
 	 * @return
 	 */
-	public java.util.List<Payment> getPayments()
+	public java.util.List<Paymentt> getPayments()
 	{
 		return paymentRepository.findAll();
 	}
@@ -38,7 +38,7 @@ public class PaymentService {
 	 * save
 	 * @param payment
 	 */
-	public void save(Payment payment)
+	public void save(Paymentt payment)
 	{
 		paymentRepository.save(payment);
 	}
@@ -48,7 +48,7 @@ public class PaymentService {
      * @param id
      * @return
      */
-	public Optional<Payment> findById(Long id) {
+	public Optional<Paymentt> findById(Long id) {
 		return paymentRepository.findById(id);
 	}
 

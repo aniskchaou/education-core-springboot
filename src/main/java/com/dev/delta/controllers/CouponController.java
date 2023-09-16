@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import com.dev.delta.entities.Course;
+import com.dev.delta.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,9 @@ public class CouponController {
 	@Autowired
 	private CouponService couponService;
 
+	@Autowired
+	CourseService courseService;
+
 	/**
 	 * getCountries
 	 * @param model
@@ -34,11 +39,15 @@ public class CouponController {
 	public String getCountries(Model model) {
 		List<Coupon> coupons = couponService.getCoupons();
 		model.addAttribute("coupons", coupons);
+		List<Course> countrries = courseService.getCourses();
+		model.addAttribute("courses", countrries);
 		return "coupon/index";
 	}
 	
 	@GetMapping("/addcoupon")
 	public String addBlogForm(Model model) {
+		List<Course> countrries = courseService.getCourses();
+		model.addAttribute("courses", countrries);
 	
 		return "coupon/add";
 	}
@@ -49,6 +58,8 @@ public class CouponController {
 
 		Coupon coupon = couponService.findById(id).get();
 		model.addAttribute("coupon", coupon);
+		List<Course> countrries = courseService.getCourses();
+		model.addAttribute("courses", countrries);
 
 		return "coupon/edit";
 	}

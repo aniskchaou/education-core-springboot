@@ -1,6 +1,8 @@
 package com.dev.delta.controllers;
 
+import com.dev.delta.entities.Lesson;
 import com.dev.delta.entities.Section;
+import com.dev.delta.services.LessonService;
 import com.dev.delta.services.SectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +23,10 @@ public class SectionController {
      * SectionService
      */
     @Autowired
-    private SectionService SectionService;
+    private SectionService sectionService;
+
+    @Autowired
+    LessonService lessonService;
 
     /**
      * getCountries
@@ -30,15 +35,17 @@ public class SectionController {
      */
     @GetMapping("/sections")
     public String getCountries(Model model) {
-        List<Section> sections = SectionService.getSections();
+        List<Section> sections = sectionService.getSections();
         model.addAttribute("sections", sections);
-        return "Section/index";
+        return "section/index";
     }
 
-    @GetMapping("/addSection")
+    @GetMapping("/addsection")
     public String addBlogForm(Model model) {
+        List<Lesson> lessons = lessonService.getLessons();
+        model.addAttribute("lessons", lessons);
 
-        return "Section/add";
+        return "section/add";
     }
 
     /**
@@ -47,9 +54,9 @@ public class SectionController {
      * @param model
      * @return
      */
-    @PostMapping("/addSection")
+    @PostMapping("/addsection")
     public String addSection(Section Section, Model model) {
-        SectionService.save(Section);
+        sectionService.save(Section);
         return "redirect:/sections";
     }
 
@@ -74,23 +81,24 @@ public class SectionController {
      * @param model
      * @return
      */
-    @RequestMapping("/Section/{id}")
+    @RequestMapping("/section/{id}")
     public String findById(@PathVariable("id") Long id, Model model) {
 
-        Section Section = SectionService.findById(id).get();
-        model.addAttribute("Section", Section);
+        Section section = sectionService.findById(id).get();
+        model.addAttribute("section", section);
 
-        return "Section/view";
+        return "section/view";
     }
 
 
-    @RequestMapping("/editSection/{id}")
+    @RequestMapping("/editsection/{id}")
     public String editSection(@PathVariable("id") Long id, Model model) {
+        List<Lesson> lessons = lessonService.getLessons();
+        model.addAttribute("lessons", lessons);
+        Section section = sectionService.findById(id).get();
+        model.addAttribute("section", section);
 
-        Section Section = SectionService.findById(id).get();
-        model.addAttribute("Section", Section);
-
-        return "Section/edit";
+        return "section/edit";
     }
 
     /**
@@ -101,12 +109,12 @@ public class SectionController {
      * @param model
      * @return
      */
-    @PostMapping("/updateSection/{id}")
+    @PostMapping("/updatesection/{id}")
     public String updateSection(@PathVariable("id") long id, @Validated Section Section,
                                  BindingResult result,
                                  Model model) {
 
-        SectionService.save(Section);
+        sectionService.save(Section);
         return "redirect:/sections";
     }
 
@@ -115,10 +123,10 @@ public class SectionController {
      * @param id
      * @return
      */
-    @GetMapping("/deleteSection/{id}")
+    @GetMapping("/deletesection/{id}")
     @Transactional
     public String deleteSection(@PathVariable("id") Long id) {
-        SectionService.delete(id);
+        sectionService.delete(id);
         return "redirect:/sections";
     }
 }

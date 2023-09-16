@@ -1,6 +1,8 @@
 package com.dev.delta.controllers;
 
+import com.dev.delta.entities.Lesson;
 import com.dev.delta.entities.Option;
+import com.dev.delta.services.LessonService;
 import com.dev.delta.services.OptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +25,9 @@ public class OptionController {
     @Autowired
     private OptionService OptionService;
 
+    @Autowired
+    LessonService lessonService;
+
     /**
      * getCountries
      * @param model
@@ -35,10 +40,11 @@ public class OptionController {
         return "Option/index";
     }
 
-    @GetMapping("/addOption")
+    @GetMapping("/addoption")
     public String addBlogForm(Model model) {
-
-        return "Option/add";
+        List<Lesson> lessons = lessonService.getLessons();
+        model.addAttribute("lessons", lessons);
+        return "option/add";
     }
 
     /**
@@ -47,7 +53,7 @@ public class OptionController {
      * @param model
      * @return
      */
-    @PostMapping("/addOption")
+    @PostMapping("/addoption")
     public String addOption(Option Option, Model model) {
         OptionService.save(Option);
         return "redirect:/options";
@@ -89,6 +95,8 @@ public class OptionController {
 
         Option Option = OptionService.findById(id).get();
         model.addAttribute("Option", Option);
+        List<Lesson> lessons = lessonService.getLessons();
+        model.addAttribute("lessons", lessons);
 
         return "Option/edit";
     }

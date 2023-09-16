@@ -1,7 +1,11 @@
 package com.dev.delta.controllers;
 
+import com.dev.delta.entities.Course;
 import com.dev.delta.entities.Enroll;
+import com.dev.delta.entities.Student;
+import com.dev.delta.services.CourseService;
 import com.dev.delta.services.EnrollService;
+import com.dev.delta.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +27,12 @@ public class EnrollController {
     @Autowired
     private EnrollService EnrollService;
 
+    @Autowired
+    CourseService courseService;
+
+    @Autowired
+    StudentService studentService;
+
     /**
      * getCountries
      * @param model
@@ -32,13 +42,18 @@ public class EnrollController {
     public String getCountries(Model model) {
         List<Enroll> enrolls = EnrollService.getEnrolls();
         model.addAttribute("enrolls", enrolls);
-        return "Enroll/index";
+        return "enroll/index";
     }
 
-    @GetMapping("/addEnroll")
+    @GetMapping("/addenroll")
     public String addBlogForm(Model model) {
 
-        return "Enroll/add";
+        List<Student> students = studentService.getStudents();
+        model.addAttribute("students", students);
+        List<Course> courses = courseService.getCourses();
+        model.addAttribute("courses", courses);
+
+        return "enroll/add";
     }
 
     /**
@@ -47,7 +62,7 @@ public class EnrollController {
      * @param model
      * @return
      */
-    @PostMapping("/addEnroll")
+    @PostMapping("/addenroll")
     public String addEnroll(Enroll Enroll, Model model) {
         EnrollService.save(Enroll);
         return "redirect:/enrolls";
@@ -74,7 +89,7 @@ public class EnrollController {
      * @param model
      * @return
      */
-    @RequestMapping("/Enroll/{id}")
+    @RequestMapping("/enroll/{id}")
     public String findById(@PathVariable("id") Long id, Model model) {
 
         Enroll Enroll = EnrollService.findById(id).get();
@@ -84,13 +99,17 @@ public class EnrollController {
     }
 
 
-    @RequestMapping("/editEnroll/{id}")
+    @RequestMapping("/editenroll/{id}")
     public String editEnroll(@PathVariable("id") Long id, Model model) {
 
         Enroll Enroll = EnrollService.findById(id).get();
-        model.addAttribute("Enroll", Enroll);
+        model.addAttribute("enroll", Enroll);
+        List<Student> students = studentService.getStudents();
+        model.addAttribute("students", students);
+        List<Course> courses = courseService.getCourses();
+        model.addAttribute("courses", courses);
 
-        return "Enroll/edit";
+        return "enroll/edit";
     }
 
     /**
@@ -101,7 +120,7 @@ public class EnrollController {
      * @param model
      * @return
      */
-    @PostMapping("/updateEnroll/{id}")
+    @PostMapping("/updateenroll/{id}")
     public String updateEnroll(@PathVariable("id") long id, @Validated Enroll Enroll,
                                  BindingResult result,
                                  Model model) {
@@ -115,7 +134,7 @@ public class EnrollController {
      * @param id
      * @return
      */
-    @GetMapping("/deleteEnroll/{id}")
+    @GetMapping("/deleteenroll/{id}")
     @Transactional
     public String deleteEnroll(@PathVariable("id") Long id) {
         EnrollService.delete(id);

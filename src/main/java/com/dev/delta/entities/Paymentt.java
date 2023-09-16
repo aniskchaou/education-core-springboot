@@ -1,25 +1,33 @@
 package com.dev.delta.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-public class Payment {
+@Table(name = "paymentt")
+public class Paymentt {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
-	String order;
+
+
+	@ManyToOne
+	Course course;
 	String date	;
 	String name;
 	String value;
 	String paymentType	;
-	
-	public Payment() {
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
+	public Paymentt() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -29,14 +37,6 @@ public class Payment {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getOrder() {
-		return order;
-	}
-
-	public void setOrder(String order) {
-		this.order = order;
 	}
 
 	public String getDate() {

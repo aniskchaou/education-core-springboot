@@ -1,22 +1,6 @@
 package com.dev.delta.dto;
 
-import com.dev.delta.entities.Blog;
-import com.dev.delta.entities.Category;
-import com.dev.delta.entities.Coupon;
-import com.dev.delta.entities.Course;
-import com.dev.delta.entities.Enroll;
-import com.dev.delta.entities.Instructor;
-import com.dev.delta.entities.Lesson;
-import com.dev.delta.entities.Option;
-import com.dev.delta.entities.Question;
-import com.dev.delta.entities.Quiz;
-import com.dev.delta.entities.Role;
-import com.dev.delta.entities.Section;
-import com.dev.delta.entities.Student;
-import com.dev.delta.entities.SubCategory;
-import com.dev.delta.entities.SystemSettings;
-import com.dev.delta.entities.User;
-import com.dev.delta.entities.WebsiteSettings;
+import com.dev.delta.entities.*;
 
 public interface DTO {
 
@@ -37,5 +21,6 @@ public interface DTO {
 	public SubCategory subCategory=new SubCategory();
 	public WebsiteSettings websiteSettings=new WebsiteSettings();
 	public Option option=new Option();
+	Paymentt pay=new Paymentt();
 	public void populate();
 }

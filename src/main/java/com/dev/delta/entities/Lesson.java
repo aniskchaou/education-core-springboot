@@ -15,8 +15,6 @@ public class Lesson {
 	@Column(name = "id")
 	private Long id;
 	String title;
-	@ManyToOne
-	Section section;
 	String video;
 	String duration;
 	String summary;
@@ -40,14 +38,6 @@ public class Lesson {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public Section getSection() {
-		return section;
-	}
-
-	public void setSection(Section section) {
-		this.section = section;
 	}
 
 	public String getVideo() {

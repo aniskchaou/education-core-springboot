@@ -21,7 +21,7 @@ public class LessonController {
      * LessonService
      */
     @Autowired
-    private LessonService LessonService;
+    private LessonService lessonService;
 
     /**
      * getCountries
@@ -30,12 +30,12 @@ public class LessonController {
      */
     @GetMapping("/lessons")
     public String getCountries(Model model) {
-        List<Lesson> lessons = LessonService.getLessons();
+        List<Lesson> lessons = lessonService.getLessons();
         model.addAttribute("lessons", lessons);
         return "lesson/index";
     }
 
-    @GetMapping("/addLesson")
+    @GetMapping("/addlesson")
     public String addBlogForm(Model model) {
 
         return "lesson/add";
@@ -47,9 +47,9 @@ public class LessonController {
      * @param model
      * @return
      */
-    @PostMapping("/addLesson")
+    @PostMapping("/addlesson")
     public String addLesson(Lesson Lesson, Model model) {
-        LessonService.save(Lesson);
+        lessonService.save(Lesson);
         return "redirect:/lessons";
     }
 
@@ -77,18 +77,18 @@ public class LessonController {
     @RequestMapping("/Lesson/{id}")
     public String findById(@PathVariable("id") Long id, Model model) {
 
-        Lesson Lesson = LessonService.findById(id).get();
-        model.addAttribute("Lesson", Lesson);
+        Lesson lesson = lessonService.findById(id).get();
+        model.addAttribute("category", lesson);
 
         return "Lesson/view";
     }
 
 
-    @RequestMapping("/editLesson/{id}")
+    @RequestMapping("/editlesson/{id}")
     public String editLesson(@PathVariable("id") Long id, Model model) {
 
-        Lesson Lesson = LessonService.findById(id).get();
-        model.addAttribute("Lesson", Lesson);
+        Lesson lesson = lessonService.findById(id).get();
+        model.addAttribute("category", lesson);
 
         return "lesson/edit";
     }
@@ -101,12 +101,12 @@ public class LessonController {
      * @param model
      * @return
      */
-    @PostMapping("/updateLesson/{id}")
+    @PostMapping("/updatelesson/{id}")
     public String updateLesson(@PathVariable("id") long id, @Validated Lesson Lesson,
                                  BindingResult result,
                                  Model model) {
 
-        LessonService.save(Lesson);
+        lessonService.save(Lesson);
         return "redirect:/lessons";
     }
 
@@ -115,10 +115,10 @@ public class LessonController {
      * @param id
      * @return
      */
-    @GetMapping("/deleteLesson/{id}")
+    @GetMapping("/deletelesson/{id}")
     @Transactional
     public String deleteLesson(@PathVariable("id") Long id) {
-        LessonService.delete(id);
+        lessonService.delete(id);
         return "redirect:/lessons";
     }
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import com.dev.delta.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,9 @@ public class SubCategoryController {
 	@Autowired
 	private SubCategoryService subCategoryService;
 
+	@Autowired
+	CategoryService categoryService;
+
 	/**
 	 * getCountries
 	 * @param model
@@ -39,7 +43,8 @@ public class SubCategoryController {
 	
 	@GetMapping("/addsubcategory")
 	public String addBlogForm(Model model) {
-	
+		List<Category> countrries = categoryService.getCategorys();
+		model.addAttribute("categories", countrries);
 		return "subcategory/add";
 	}
 	
@@ -48,6 +53,8 @@ public class SubCategoryController {
 
 		SubCategory subCategory = subCategoryService.findById(id).get();
 		model.addAttribute("subcategory", subCategory);
+		List<Category> countrries = categoryService.getCategorys();
+		model.addAttribute("categories", countrries);
 
 		return "subcategory/edit";
 	}
@@ -72,9 +79,10 @@ public class SubCategoryController {
 	 */
 	@RequestMapping("/subCategory/{id}")
 	public String findById(@PathVariable("id") Long id, Model model) {
-
+		List<Category> countrries = categoryService.getCategorys();
 		SubCategory subCategory = subCategoryService.findById(id).get();
 		model.addAttribute("subCategory", subCategory);
+		model.addAttribute("categories", countrries);
 
 		return "subcategory/view";
 	}

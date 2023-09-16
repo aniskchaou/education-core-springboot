@@ -15,7 +15,6 @@ public class LessonDTO  implements DTO{
 	public void populate() {
 		lesson.setDuration("");
 		lesson.setIsFree("");
-		lesson.setSection(section);
 		lesson.setSummary("");
 		lesson.setTitle("");
 		lesson.setVideo("");

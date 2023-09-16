@@ -2,8 +2,8 @@ package com.dev.delta.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.dev.delta.entities.Payment;
+import com.dev.delta.entities.Paymentt;
 
-public interface PaymentRepository  extends JpaRepository<Payment, Long>{
+public interface PaymentRepository  extends JpaRepository<Paymentt, Long>{
 
 }

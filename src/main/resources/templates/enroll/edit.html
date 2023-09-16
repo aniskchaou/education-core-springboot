@@ -1,14 +1,24 @@
-<form th:action="@{/updatecategory/{id}(id=${category.id})}"
-	th:object="${category}" method="post">
+<form th:action="@{/updateenroll/{id}(id=${category.id})}"
+	th:object="${enroll}" method="post">
 
-	
-	
+
+
 	<div class="form-group">
-		<label for="exampleInputEmail1">Name</label> <input
-			name="name" type="text" class="form-control"
-			id="exampleInputEmail1" aria-describedby="emailHelp"
-			th:value="${category.name}"
-			placeholder="Description">
+		<label for="exampleInputEmail1">course</label>
+		<select name="course" data-live-search="true" h:value="${enroll.course}"
+				type="text" class="form-control selectpicker" required="required">
+			<option th:value="${u.id}" th:each="u:${courses}"
+					th:text="${u.topicTitle}"></option>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label for="exampleInputEmail1">student</label>
+		<select name="student" data-live-search="true" h:value="${enroll.course}"
+				type="text" class="form-control selectpicker" required="required">
+			<option th:value="${u.id}" th:each="u:${student}"
+					th:text="${u.name}"></option>
+		</select>
 	</div>
 
 	<button type="submit" class="btn btn-primary">Edit</button>

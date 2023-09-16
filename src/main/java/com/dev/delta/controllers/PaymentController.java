@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import com.dev.delta.entities.Course;
+import com.dev.delta.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,8 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.dev.delta.entities.Category;
-import com.dev.delta.entities.Payment;
+import com.dev.delta.entities.Paymentt;
 import com.dev.delta.services.PaymentService;
 @Controller
 public class PaymentController {
@@ -25,6 +26,9 @@ public class PaymentController {
 	@Autowired
 	private PaymentService paymentService;
 
+	@Autowired
+	CourseService courseService;
+
 	/**
 	 * getCountries
 	 * @param model
@@ -32,15 +36,17 @@ public class PaymentController {
 	 */
 	@GetMapping("/payments")
 	public String getCountries(Model model) {
-		List<Payment> countrries = paymentService.getPayments();
+		List<Paymentt> countrries = paymentService.getPayments();
 		model.addAttribute("payments", countrries);
 		return "payment/index";
 	}
 	
 	@RequestMapping("/editpayment/{id}")
 	public String editCategory(@PathVariable("id") Long id, Model model) {
+		List<Course> countrries = courseService.getCourses();
+		model.addAttribute("courses", countrries);
 
-		Payment payment = paymentService.findById(id).get();
+		Paymentt payment = paymentService.findById(id).get();
 		model.addAttribute("payment", payment);
 
 		return "payment/edit";
@@ -49,7 +55,8 @@ public class PaymentController {
 	
 	@GetMapping("/addpayment")
 	public String addBlogForm(Model model) {
-	
+		List<Course> countrries = courseService.getCourses();
+		model.addAttribute("courses", countrries);
 		return "payment/add";
 	}
 
@@ -60,7 +67,9 @@ public class PaymentController {
 	 * @return
 	 */
 	@PostMapping("/addpayment")
-	public String addPayment(Payment payment, Model model) {
+	public String addPayment(Paymentt payment, Model model) {
+		List<Course> countrries = courseService.getCourses();
+		model.addAttribute("courses", countrries);
 		paymentService.save(payment);
 		return "redirect:/payments";
 	}
@@ -74,7 +83,7 @@ public class PaymentController {
 	@RequestMapping("/payment/{id}")
 	public String findById(@PathVariable("id") Long id, Model model) {
 
-		Payment payment = paymentService.findById(id).get();
+		Paymentt payment = paymentService.findById(id).get();
 		model.addAttribute("payment", payment);
 
 		return "payment/view";
@@ -89,7 +98,7 @@ public class PaymentController {
 	 * @return
 	 */
 	@PostMapping("/updatepayment/{id}")
-	public String updatePayment(@PathVariable("id") long id, @Validated Payment payment, 
+	public String updatePayment(@PathVariable("id") long id, @Validated Paymentt payment,
 			BindingResult result,
 			Model model) {
 

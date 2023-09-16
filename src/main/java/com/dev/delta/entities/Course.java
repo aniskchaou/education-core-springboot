@@ -33,7 +33,28 @@ public class Course {
 	String startDate;
 	String downloadable;
 	String partnerInstructor;
-	
+
+	String teacher;
+
+	@ManyToOne
+	Section section;
+
+	public String getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(String teacher) {
+		this.teacher = teacher;
+	}
+
+	public Section getSection() {
+		return section;
+	}
+
+	public void setSection(Section section) {
+		this.section = section;
+	}
+
 	public Course() {
 		// TODO Auto-generated constructor stub
 	}

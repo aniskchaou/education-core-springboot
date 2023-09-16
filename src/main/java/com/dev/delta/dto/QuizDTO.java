@@ -15,7 +15,6 @@ public class QuizDTO implements DTO {
        quiz.setCategory("");
        quiz.setInstruction("");
        quiz.setMinimumPercentage("");
-       quiz.setQuestion(question);
        quiz.setQuizTitle("");
        
        quizRepository.save(quiz);

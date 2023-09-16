@@ -16,8 +16,16 @@ public class Section {
 	private Long id;
 	String title;
 	@ManyToOne
-	Question question;
-	
+	Lesson lesson;
+
+	public Lesson getLesson() {
+		return lesson;
+	}
+
+	public void setLesson(Lesson lesson) {
+		this.lesson = lesson;
+	}
+
 	public Section() {
 		// TODO Auto-generated constructor stub
 	}
@@ -38,13 +46,6 @@ public class Section {
 		this.title = title;
 	}
 
-	public Question getQuestion() {
-		return question;
-	}
 
-	public void setQuestion(Question question) {
-		this.question = question;
-	}
-	
 	
 }

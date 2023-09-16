@@ -1,14 +1,11 @@
 package com.dev.delta;
 
+import com.dev.delta.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.dev.delta.dto.CategoryDTO;
-import com.dev.delta.dto.CouponDTO;
-import com.dev.delta.dto.RoleDTO;
-import com.dev.delta.dto.UserDTO;
 import com.dev.delta.entities.Coupon;
 
 @SpringBootApplication
@@ -25,6 +22,9 @@ public class SpringbootEducationCoreCodecanyonApplication implements CommandLine
 	
 	@Autowired
 	CouponDTO couponDTO;
+
+	@Autowired
+	PaymentDTO paymentDTO;
 	
 	
 	public static void main(String[] args) {
@@ -36,6 +36,7 @@ public class SpringbootEducationCoreCodecanyonApplication implements CommandLine
 		roleDTO.populate();
 		userDTO.populate();
 		couponDTO.populate();
+		//paymentDTO.populate();
 		
 		
 	}

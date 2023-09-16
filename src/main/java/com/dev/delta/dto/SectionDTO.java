@@ -14,8 +14,9 @@ public class SectionDTO implements DTO{
 	@Override
 	public void populate() {
 		// TODO Auto-generated method stub
-		section.setQuestion(question);
+		//section.setQuestion(question);
 		section.setTitle("");
+		section.setLesson(lesson);
 		sectionRepository.save(section);
 	}
 

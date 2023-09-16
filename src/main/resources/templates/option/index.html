@@ -1,4 +1,7 @@
 
+
+
+
 		<html dir="ltr" lang="en">
 		<head>
 			<meta charset="utf-8" />
@@ -77,13 +80,13 @@
 				<div class="page-breadcrumb">
 					<div class="row">
 						<div class="col-12 d-flex no-block align-items-center">
-							<h4 class="page-title">Students</h4>
+							<h4 class="page-title">Tables</h4>
 							<div class="ms-auto text-end">
 								<nav aria-label="breadcrumb">
 									<ol class="breadcrumb">
-										<li class="breadcrumb-item"><a href="#">App</a></li>
+										<li class="breadcrumb-item"><a href="#">Home</a></li>
 										<li class="breadcrumb-item active" aria-current="page">
-											Students</li>
+											Library</li>
 									</ol>
 								</nav>
 							</div>
@@ -105,45 +108,42 @@
 
 
 
-<!--							<a th:href="@{/addcategory}">Create</a>-->
+							<a th:href="@{/addcategory}">Create</a>
 							<div class="card">
 								<div class="card-body">
-<!--									<h5 class="card-title">Basic Datatable</h5>-->
+									<h5 class="card-title">Basic Datatable</h5>
 									<div class="table-responsive">
-										<a th:href="@{/addstudent}" type="button" class="btn btn-primary">Create</a>
-										<table id="dataTable" class="text-center col-md-12">
+										<a th:href="@{/addoption}">Create</a>
+										<table id="dataTable" class="text-center">
 											<thead class="bg-light text-capitalize">
 											<tr>
 												<th th:text="name"></th>
-												<th th:text="email"></th>
-												<th th:text="Birth"></th>
-												<th th:text="Phone"></th>
-												<th th:text="Actions"></th>
+												<th></th>
+
 											</tr>
 											</thead>
 											<tbody>
-											<tr th:each="item:${students}">
-												<td th:text="${item.name}"></td>
-												<td th:text="${item.email}"></td>
-												<td th:text="${item.dateOfBirth}"></td>
-												<td th:text="${item.phone}"></td>
+											<tr th:each="item:${options}">
+												<td th:text="${item.option}"></td>
 												<td>
+
 													<a type="button"
-													   class="btn btn-flat btn-warning "
-													   th:href="@{/editstudent/{id}(id=${item.id}) }">
-														<i class="fa fa-edit" aria-hidden="true"></i>edit
+													   class="btn btn-flat btn-warning btn-xs mb-3"
+													   th:href="@{/editoption{id}(id=${item.id}) }">
+														<i class="fa fa-edit" aria-hidden="true"></i>a
 													</a>
 													<a type="button"
 													   onclick="return confirm('Are you sure?') ? true : false;"
-													   class="btn btn-flat btn-danger "
-													   th:href="@{/deletestudent/{id}(id=${item.id}) }">
-														<i class="fa fa-trash" aria-hidden="true"></i>remove
+													   class="btn btn-flat btn-danger btn-xs mb-3"
+													   th:href="@{/deleteoption/{id}(id=${item.id}) }">
+														<i class="fa fa-trash" aria-hidden="true"></i>a
 													</a></td>
 											</tr>
 
 											</tbody>
 
 										</table>
+
 									</div>
 								</div>
 							</div>
@@ -204,7 +204,7 @@
 		/****************************************
 		 *       Basic Table                   *
 		 ****************************************/
-		$("table").DataTable();
+		$("#zero_config").DataTable();
 	</script>
 		</body>
 		</html>
