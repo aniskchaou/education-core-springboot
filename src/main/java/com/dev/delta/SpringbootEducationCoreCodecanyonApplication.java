@@ -35,8 +35,7 @@ public class SpringbootEducationCoreCodecanyonApplication implements CommandLine
 	public void run(String... args) throws Exception {
 		roleDTO.populate();
 		userDTO.populate();
-		couponDTO.populate();
-		paymentDTO.populate();
+
 		
 		
 	}
